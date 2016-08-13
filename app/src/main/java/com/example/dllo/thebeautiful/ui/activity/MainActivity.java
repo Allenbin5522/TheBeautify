@@ -12,6 +12,7 @@ import com.example.dllo.thebeautiful.ui.fragment.DesignerFragment;
 import com.example.dllo.thebeautiful.ui.fragment.MineFragment;
 import com.example.dllo.thebeautiful.ui.fragment.PictorialFragment;
 import com.example.dllo.thebeautiful.ui.fragment.ThingsFragment;
+import com.example.dllo.thebeautiful.utils.L;
 
 public class MainActivity extends AbsBaseActivity implements RadioGroup.OnCheckedChangeListener {
 
@@ -41,7 +42,7 @@ public class MainActivity extends AbsBaseActivity implements RadioGroup.OnChecke
         radioGroup.setOnCheckedChangeListener(this);
         radioGroup.check(R.id.rb_pictorial);
 
-        
+
     }
 
 
