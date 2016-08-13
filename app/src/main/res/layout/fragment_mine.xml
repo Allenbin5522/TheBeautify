@@ -10,6 +10,7 @@
         android:background="@mipmap/bg_mine">
 
         <Button
+            android:id="@+id/btn_feedback"
             android:layout_width="70dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
@@ -20,6 +21,7 @@
             android:textSize="15sp" />
 
         <Button
+            android:id="@+id/btn_setting"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
@@ -45,6 +47,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_collection"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:orientation="horizontal">
@@ -84,6 +87,7 @@
         android:background="@android:color/darker_gray" />
 
     <RelativeLayout
+        android:id="@+id/rl_attention"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:orientation="horizontal">
@@ -123,6 +127,7 @@
         android:background="@android:color/darker_gray" />
 
     <RelativeLayout
+        android:id="@+id/rl_wish"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:orientation="horizontal">

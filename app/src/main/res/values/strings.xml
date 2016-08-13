@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">TheBeautiful</string>
+    <string name="setUp">设置</string>
+    <string name="userFeedback">用户反馈</string>
+    <string name="contact">填写联系方式</string>
+    <string name="focus">关注的设计师</string>
+    <string name="personalInformation">个人信息</string>
+    <string name="clearTheCache">清除缓存</string>
+    <string name="feedback">反馈</string>
+    <string name="highPraise">好评</string>
+    <string name="recommendTOFriend">推荐给朋友</string>
+    <string name="attentionToOur">关于我们</string>
+    <string name="myWish">我的心愿单</string>
+    <string name="collection">收藏的</string>
+    <string name="praise">赞过的</string>
 </resources>

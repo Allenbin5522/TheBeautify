@@ -1,0 +1,24 @@
+package com.example.dllo.thebeautiful.ui.fragment;
+
+import com.example.dllo.thebeautiful.R;
+
+/**
+ * Created by dllo on 16/8/13.
+ * 我 -> 收藏的画报 -> 赞过的 界面
+ */
+public class PraiseFragment extends AbsBaseFragment{
+    @Override
+    protected int setLayout() {
+        return R.layout.fragment_praise;
+    }
+
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    protected void initDatas() {
+
+    }
+}

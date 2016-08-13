@@ -18,6 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.SettingActivity"></activity>
+        <activity android:name=".ui.activity.FeedbackActivity"></activity>
+        <activity android:name=".ui.activity.CollectionActivity"></activity>
+        <activity android:name=".ui.activity.FocusActivity"></activity>
+        <activity android:name=".ui.activity.WishActivity"></activity>
     </application>
 
 </manifest>
