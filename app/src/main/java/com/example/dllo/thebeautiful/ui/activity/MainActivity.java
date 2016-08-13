@@ -2,13 +2,17 @@ package com.example.dllo.thebeautiful.ui.activity;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.widget.RadioGroup;
 
 import com.example.dllo.thebeautiful.R;
+import com.example.dllo.thebeautiful.model.net.OKHttpInstance;
+import com.example.dllo.thebeautiful.model.net.OnHttpCallBack;
 import com.example.dllo.thebeautiful.ui.fragment.DesignerFragment;
 import com.example.dllo.thebeautiful.ui.fragment.MineFragment;
 import com.example.dllo.thebeautiful.ui.fragment.PictorialFragment;
 import com.example.dllo.thebeautiful.ui.fragment.ThingsFragment;
+import com.example.dllo.thebeautiful.utils.L;
 
 public class MainActivity extends AbsBaseActivity implements RadioGroup.OnCheckedChangeListener {
 
@@ -37,7 +41,11 @@ public class MainActivity extends AbsBaseActivity implements RadioGroup.OnChecke
 
         radioGroup.setOnCheckedChangeListener(this);
         radioGroup.check(R.id.rb_pictorial);
+
+
     }
+
+
 
 
     @Override
@@ -60,6 +68,8 @@ public class MainActivity extends AbsBaseActivity implements RadioGroup.OnChecke
         }
         transaction.commit();
     }
+
+
 
 
 }
