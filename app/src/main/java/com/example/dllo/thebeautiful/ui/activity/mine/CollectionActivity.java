@@ -1,4 +1,4 @@
-package com.example.dllo.thebeautiful.ui.activity;
+package com.example.dllo.thebeautiful.ui.activity.mine;
 
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.dllo.thebeautiful.R;
+import com.example.dllo.thebeautiful.ui.activity.AbsBaseActivity;
 import com.example.dllo.thebeautiful.ui.adapter.CollectionAdapter;
 import com.example.dllo.thebeautiful.ui.fragment.CollectionFragment;
 import com.example.dllo.thebeautiful.ui.fragment.PictorialFragment;

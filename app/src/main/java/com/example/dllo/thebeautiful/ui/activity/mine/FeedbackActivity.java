@@ -1,9 +1,10 @@
-package com.example.dllo.thebeautiful.ui.activity;
+package com.example.dllo.thebeautiful.ui.activity.mine;
 
 import android.view.View;
 import android.widget.ImageView;
 
 import com.example.dllo.thebeautiful.R;
+import com.example.dllo.thebeautiful.ui.activity.AbsBaseActivity;
 
 /**
  * Created by dllo on 16/8/13.
