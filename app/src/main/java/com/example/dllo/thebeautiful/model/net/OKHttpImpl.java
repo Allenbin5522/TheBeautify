@@ -75,6 +75,7 @@ public class OKHttpImpl implements OKNetWork{
 
 
     //如果有请求头  public <T> void startRequest(String url, Map<String, String> mapHeaders, final Class<T> Clazz, final OnHttpCallBack<T> callBack){
+
     @Override
     public <T> void startRequest(String url, final Class<T> clazz, final OnHttpCallBack<T> callBack) {
         Request request = new Request.Builder().url(url).build();
