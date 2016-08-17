@@ -1,4 +1,4 @@
-package com.example.dllo.thebeautiful.ui.fragment;
+package com.example.dllo.thebeautiful.ui.fragment.Mine;
 
 
 import android.support.v7.app.AlertDialog;
@@ -14,6 +14,7 @@ import com.example.dllo.thebeautiful.ui.activity.mine.FeedbackActivity;
 import com.example.dllo.thebeautiful.ui.activity.mine.FocusActivity;
 import com.example.dllo.thebeautiful.ui.activity.mine.SettingActivity;
 import com.example.dllo.thebeautiful.ui.activity.mine.WishActivity;
+import com.example.dllo.thebeautiful.ui.fragment.AbsBaseFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;

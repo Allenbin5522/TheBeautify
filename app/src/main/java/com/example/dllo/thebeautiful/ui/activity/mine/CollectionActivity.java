@@ -10,9 +10,8 @@ import android.widget.ImageView;
 import com.example.dllo.thebeautiful.R;
 import com.example.dllo.thebeautiful.ui.activity.AbsBaseActivity;
 import com.example.dllo.thebeautiful.ui.adapter.CollectionAdapter;
-import com.example.dllo.thebeautiful.ui.fragment.CollectionFragment;
-import com.example.dllo.thebeautiful.ui.fragment.PictorialFragment;
-import com.example.dllo.thebeautiful.ui.fragment.PraiseFragment;
+import com.example.dllo.thebeautiful.ui.fragment.Mine.CollectionFragment;
+import com.example.dllo.thebeautiful.ui.fragment.Mine.PraiseFragment;
 
 import java.util.ArrayList;
 

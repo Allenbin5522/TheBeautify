@@ -5,8 +5,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.widget.RadioGroup;
 
 import com.example.dllo.thebeautiful.R;
-import com.example.dllo.thebeautiful.ui.fragment.DesignerFragment;
-import com.example.dllo.thebeautiful.ui.fragment.MineFragment;
+import com.example.dllo.thebeautiful.ui.fragment.Designer.DesignerFragment;
+import com.example.dllo.thebeautiful.ui.fragment.Mine.MineFragment;
 import com.example.dllo.thebeautiful.ui.fragment.PictorialFragment;
 import com.example.dllo.thebeautiful.ui.fragment.things.ThingsFragment;
 
