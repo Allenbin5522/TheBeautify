@@ -31,7 +31,6 @@ public class MainActivity extends AbsBaseActivity implements RadioGroup.OnChecke
 
     @Override
     protected void initDatas() {
-        pictorialFragment = new PictorialFragment();
         thingsFragment = new ThingsFragment();
         designerFragment = new DesignerFragment();
         mineFragment = new MineFragment();
@@ -52,7 +51,7 @@ public class MainActivity extends AbsBaseActivity implements RadioGroup.OnChecke
         FragmentTransaction transaction = manager.beginTransaction();
         switch (checkedId){
             case R.id.rb_pictorial:
-                transaction.replace(R.id.framelayout_mainAty, pictorialFragment);
+                transaction.replace(R.id.framelayout_mainAty, new PictorialFragment());
                 break;
             case R.id.rb_things:
                 transaction.replace(R.id.framelayout_mainAty, thingsFragment);
