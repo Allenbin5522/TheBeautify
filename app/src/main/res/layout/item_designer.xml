@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="380dp"
+    android:orientation="vertical"
+    android:background="@android:color/black">
+    <ImageView
+        android:id="@+id/iv_designer"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="#FFFFFF"
+        android:scaleType="fitXY"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_designer_head"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="230dp"/>
+    <TextView
+        android:id="@+id/tv_name_designer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:layout_centerHorizontal="true"
+        android:text="名字"
+        android:textColor="#FFFFFF"/>
+    <TextView
+        android:id="@+id/tv_label_designer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="310dp"
+        android:text="标注"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关注"
+        android:background="@android:color/black"
+        android:textColor="@android:color/darker_gray"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="330dp"/>
+
+
+
+</RelativeLayout>
