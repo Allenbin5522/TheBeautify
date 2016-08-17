@@ -36,11 +36,11 @@ public class ThingsFragment extends AbsBaseFragment {
     protected void initDatas() {
         fragments = new ArrayList<>();
         fragments.add(new Things_thingsFragment());
-        fragments.add(Things_othersFragments.getFragments(URLValues.THINGS_BAG));
-        fragments.add(Things_othersFragments.getFragments(URLValues.THINGS_SHOES));
-        fragments.add(Things_othersFragments.getFragments(URLValues.THINGS_JEWELRY));
-        fragments.add(Things_othersFragments.getFragments(URLValues.THINGS_ACCESSORY));
-        fragments.add(Things_othersFragments.getFragments(URLValues.THINGS_OTHERS));
+        fragments.add(Things_centerFourFragments.getFragments(URLValues.THINGS_BAG));
+        fragments.add(Things_centerFourFragments.getFragments(URLValues.THINGS_SHOES));
+        fragments.add(Things_centerFourFragments.getFragments(URLValues.THINGS_JEWELRY));
+        fragments.add(Things_centerFourFragments.getFragments(URLValues.THINGS_ACCESSORY));
+        fragments.add(new Things_othersFragments());
 
         ThingsAdapter adapter = new ThingsAdapter(getChildFragmentManager(), fragments);
         viewPager.setAdapter(adapter);
