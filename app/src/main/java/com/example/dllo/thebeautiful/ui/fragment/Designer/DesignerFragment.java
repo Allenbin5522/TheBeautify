@@ -1,5 +1,8 @@
-package com.example.dllo.thebeautiful.ui.fragment.Designer;
+package com.example.dllo.thebeautiful.ui.fragment.designer;
 
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.dllo.thebeautiful.R;
@@ -8,6 +11,11 @@ import com.example.dllo.thebeautiful.model.net.OKHttpInstance;
 import com.example.dllo.thebeautiful.model.net.OnHttpCallBack;
 import com.example.dllo.thebeautiful.ui.adapter.designer.DesignerAdapter;
 import com.example.dllo.thebeautiful.model.net.URLValues;
+
+
+import com.example.dllo.thebeautiful.ui.activity.designer.DesignerSecondActivity;
+
+
 import com.example.dllo.thebeautiful.ui.fragment.AbsBaseFragment;
 import com.google.gson.Gson;
 
@@ -17,7 +25,7 @@ import java.util.List;
  * Created by dllo on 16/8/12.
  * 设计师界面
  */
-public class DesignerFragment extends AbsBaseFragment {
+public class DesignerFragment extends AbsBaseFragment implements AdapterView.OnItemClickListener {
     private ListView listView;
     private DesignerAdapter adapter;
     private List<DesignerBean.DataBean.DesignersBean> designersBeen;
@@ -34,6 +42,7 @@ public class DesignerFragment extends AbsBaseFragment {
 
     @Override
     protected void initDatas() {
+
         OKHttpInstance okHttpInstance = OKHttpInstance.getInstance();
         okHttpInstance.startRequest(URLValues.DESIGNER, new OnHttpCallBack<String>() {
             @Override
@@ -52,6 +61,17 @@ public class DesignerFragment extends AbsBaseFragment {
 
             }
         });
+        listView.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        DesignerBean.DataBean.DesignersBean bean = (DesignerBean.DataBean.DesignersBean) parent.getItemAtPosition(position);
+        String intentUrl = URLValues.DESIGNER_BANNER_BEFORE + bean.getId() + URLValues.DESIGHER_BANNER_AFTER;
+        Intent intent = new Intent(getContext(),DesignerSecondActivity.class);
+        intent.putExtra("url_banner",intentUrl);
+        startActivity(intent);
+
 
     }
 }

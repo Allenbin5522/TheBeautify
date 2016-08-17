@@ -4,7 +4,8 @@
     android:layout_height="380dp"
     android:orientation="vertical"
     android:background="@android:color/black"
-    android:padding="1dp">
+    android:padding="1dp"
+    android:descendantFocusability="blocksDescendants">
     <ImageView
         android:id="@+id/iv_designer"
         android:layout_width="match_parent"

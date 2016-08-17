@@ -65,6 +65,7 @@ public class PictorialFragment extends AbsBaseFragment {
                         pictorialDatas.setHeaderTitle(title);
                         pictorialDatas.setContent(pictorialBean.getData().getArticles().get(i).getContent());
                         pictorialDatas.setSub_title(subTitle);
+
                         mEntries.add(0, pictorialDatas);
                     }
                     mDeckView = new DeckView<>(context);
