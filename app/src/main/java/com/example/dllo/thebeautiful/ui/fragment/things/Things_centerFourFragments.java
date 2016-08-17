@@ -10,8 +10,10 @@ import com.example.dllo.thebeautiful.R;
 import com.example.dllo.thebeautiful.model.bean.things.Things_othersBean;
 import com.example.dllo.thebeautiful.model.net.OKHttpInstance;
 import com.example.dllo.thebeautiful.model.net.OnHttpCallBack;
+import com.example.dllo.thebeautiful.ui.adapter.things.Things_centerFourAdapter;
 import com.example.dllo.thebeautiful.ui.adapter.things.Things_othersAdapter;
 import com.example.dllo.thebeautiful.ui.fragment.AbsBaseFragment;
+import com.example.dllo.thebeautiful.ui.interfaces.RecyclerClickListener;
 import com.google.gson.Gson;
 
 /**
@@ -22,7 +24,7 @@ public class Things_centerFourFragments extends AbsBaseFragment{
 
     private RecyclerView recyclerView;
     private Things_othersBean othersBean;
-    private Things_othersAdapter othersAdapter;
+    private Things_centerFourAdapter othersAdapter;
 
     @Override
     protected int setLayout() {
@@ -36,9 +38,11 @@ public class Things_centerFourFragments extends AbsBaseFragment{
 
     @Override
     protected void initDatas() {
-        othersAdapter = new Things_othersAdapter(context);
+        othersAdapter = new Things_centerFourAdapter(context);
         //解析
         analysis();
+
+        recyclerClick();
     }
 
     /**
@@ -49,9 +53,9 @@ public class Things_centerFourFragments extends AbsBaseFragment{
     public static Fragment getFragments(String url){
         Bundle bundle = new Bundle();
         bundle.putString("url", url);
-        Things_centerFourFragments othersFragments = new Things_centerFourFragments();
-        othersFragments.setArguments(bundle);
-        return othersFragments;
+        Things_centerFourFragments fourFragments = new Things_centerFourFragments();
+        fourFragments.setArguments(bundle);
+        return fourFragments;
     }
 
     /**
@@ -81,6 +85,18 @@ public class Things_centerFourFragments extends AbsBaseFragment{
         });
     }
 
+
+    /**
+     * recyclerView的点击事件,点击进入二级界面
+     */
+    private void recyclerClick() {
+        othersAdapter.setListener(new RecyclerClickListener() {
+            @Override
+            public void recyclerClick(int position) {
+
+            }
+        });
+    }
 
 
 }
