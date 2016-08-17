@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso;
 
 /**
  * Created by dllo on 16/8/17.
+ *
  */
 public class Things_othersAdapter extends RecyclerView.Adapter<Things_othersAdapter.MyHolder>{
 

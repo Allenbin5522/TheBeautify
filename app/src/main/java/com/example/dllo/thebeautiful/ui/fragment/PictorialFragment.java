@@ -65,11 +65,6 @@ public class PictorialFragment extends AbsBaseFragment {
                         pictorialDatas.setHeaderTitle(title);
                         pictorialDatas.setContent(pictorialBean.getData().getArticles().get(i).getContent());
                         pictorialDatas.setSub_title(subTitle);
-                        for (int j = 0; j < pictorialBean.getData().getArticles().get(i).getDesigners().size(); j++) {
-                            pictorialDatas.setLabel(pictorialBean.getData().getArticles().get(i).getDesigners().get(j).getCity());
-                            pictorialDatas.setName(pictorialBean.getData().getArticles().get(i).getDesigners().get(j).getName());
-                            pictorialDatas.setImage_url(pictorialBean.getData().getArticles().get(i).getDesigners().get(j).getAvatar_url());
-                        }
                         mEntries.add(0, pictorialDatas);
                     }
                     mDeckView = new DeckView<>(context);

@@ -20,7 +20,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Created by dllo on 16/8/17.
  */
-public class DesignerAdapter extends BaseAdapter{
+public class DesignerAdapter extends BaseAdapter {
     private List<DesignerBean.DataBean.DesignersBean> designersBeen;
     private Context context;
 
@@ -51,8 +51,8 @@ public class DesignerAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
-        if (convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_designer,parent,false);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_designer, parent, false);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         } else {
@@ -60,13 +60,10 @@ public class DesignerAdapter extends BaseAdapter{
         }
         holder.textView_name.setText(designersBeen.get(position).getName());
         holder.textView_label.setText(designersBeen.get(position).getLabel());
-        Picasso.with(context).load(designersBeen.get(position).getRecommend_images().get(0)).into(holder.imageView);
-        Picasso.with(context).load(designersBeen.get(position).getAvatar_url()).into(holder.circleImageView);
 
-
-        if (designersBeen.get(position).getAvatar_url().isEmpty()){
+        if (designersBeen.get(position).getAvatar_url().isEmpty()) {
             holder.circleImageView.setImageResource(R.mipmap.ic_launchera);
-        }else {
+        } else {
             Picasso.with(context).load(designersBeen.get(position).getAvatar_url()).into(holder.circleImageView);
         }
 
@@ -79,10 +76,10 @@ public class DesignerAdapter extends BaseAdapter{
     }
 
 
-    class ViewHolder{
+    class ViewHolder {
         private ImageView imageView;
         private CircleImageView circleImageView;
-        private TextView textView_name,textView_label;
+        private TextView textView_name, textView_label;
 
         public ViewHolder(View view) {
             imageView = (ImageView) view.findViewById(R.id.iv_designer);
@@ -91,23 +88,6 @@ public class DesignerAdapter extends BaseAdapter{
             textView_label = (TextView) view.findViewById(R.id.tv_label_designer);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
