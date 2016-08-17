@@ -4,6 +4,7 @@ import com.example.dllo.thebeautiful.R;
 
 /**
  * Created by dllo on 16/8/12.
+ * 画报界面
  */
 public class PictorialFragment extends AbsBaseFragment{
 

@@ -39,4 +39,5 @@ dependencies {
     compile files('build/libs/ShareSDK-Wechat-Favorite-2.7.5.jar')
     compile files('build/libs/ShareSDK-Wechat-Moments-2.7.5.jar')
     compile files('libs/MobCommons-2016.0811.1207.jar')
+    compile 'com.android.support:recyclerview-v7:23.1.0'
 }

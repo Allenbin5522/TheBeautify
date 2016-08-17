@@ -2,6 +2,7 @@ package com.example.dllo.thebeautiful.model.net;
 
 /**
  * Created by dllo on 16/8/13.
+ * 网络解析接口
  */
 public interface OKNetWork {
     //对解析方法 通过接口再度封装
