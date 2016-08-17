@@ -1,6 +1,7 @@
 package com.example.dllo.thebeautiful.ui.adapter.designer;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,18 @@ public class DesignerAdapter extends BaseAdapter{
         Picasso.with(context).load(designersBeen.get(position).getRecommend_images().get(0)).into(holder.imageView);
         Picasso.with(context).load(designersBeen.get(position).getAvatar_url()).into(holder.circleImageView);
 
+
+        if (designersBeen.get(position).getAvatar_url().isEmpty()){
+            holder.circleImageView.setImageResource(R.mipmap.ic_launchera);
+        }else {
+            Picasso.with(context).load(designersBeen.get(position).getAvatar_url()).into(holder.circleImageView);
+        }
+
+        if (designersBeen.get(position).getRecommend_images().isEmpty()) {
+            holder.imageView.setImageResource(R.mipmap.black_button_bg);
+        } else {
+            Picasso.with(context).load(designersBeen.get(position).getRecommend_images().get(0)).into(holder.imageView);
+        }
         return convertView;
     }
 

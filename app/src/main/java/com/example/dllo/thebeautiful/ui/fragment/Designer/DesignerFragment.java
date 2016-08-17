@@ -1,4 +1,4 @@
-package com.example.dllo.thebeautiful.ui.fragment;
+package com.example.dllo.thebeautiful.ui.fragment.Designer;
 
 import android.widget.ListView;
 
@@ -7,6 +7,8 @@ import com.example.dllo.thebeautiful.model.bean.designer.DesignerBean;
 import com.example.dllo.thebeautiful.model.net.OKHttpInstance;
 import com.example.dllo.thebeautiful.model.net.OnHttpCallBack;
 import com.example.dllo.thebeautiful.ui.adapter.designer.DesignerAdapter;
+import com.example.dllo.thebeautiful.model.net.URLValues;
+import com.example.dllo.thebeautiful.ui.fragment.AbsBaseFragment;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -15,7 +17,7 @@ import java.util.List;
  * Created by dllo on 16/8/12.
  * 设计师界面
  */
-public class DesignerFragment extends AbsBaseFragment{
+public class DesignerFragment extends AbsBaseFragment {
     private ListView listView;
     private DesignerAdapter adapter;
     private List<DesignerBean.DataBean.DesignersBean> designersBeen;
@@ -33,7 +35,7 @@ public class DesignerFragment extends AbsBaseFragment{
     @Override
     protected void initDatas() {
         OKHttpInstance okHttpInstance = OKHttpInstance.getInstance();
-        okHttpInstance.startRequest("http://design.zuimeia.com/api/v1/designers/?page=1&page_size=30&device_id=000000000000000&platform=android&lang=zh&appVersion=1.1.5&appVersionCode=10105&systemVersion=22&countryCode=CN&user_id=0&token=&package_name=com.zuiapps.zuiworld", new OnHttpCallBack<String>() {
+        okHttpInstance.startRequest(URLValues.DESIGNER, new OnHttpCallBack<String>() {
             @Override
             public void onSuccess(String response) {
                 Gson gson = new Gson();
