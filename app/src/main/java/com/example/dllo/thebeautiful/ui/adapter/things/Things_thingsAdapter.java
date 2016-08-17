@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.dllo.thebeautiful.R;
 import com.example.dllo.thebeautiful.model.bean.things.Things_thingsBean;
+import com.example.dllo.thebeautiful.view.CenterTextView;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -68,13 +69,14 @@ public class Things_thingsAdapter extends BaseAdapter{
     class MyHolder{
         private ImageView iv_things;
         private CircleImageView civ_things;
-        private TextView tv_name, tv_label, tv_digest;
+        private TextView tv_name, tv_label;
+        private CenterTextView tv_digest;
         public MyHolder(View itemView){
             iv_things = (ImageView) itemView.findViewById(R.id.iv_things_things);
             civ_things = (CircleImageView) itemView.findViewById(R.id.civ_things_things);
             tv_name = (TextView) itemView.findViewById(R.id.tv_name_things_things);
             tv_label = (TextView) itemView.findViewById(R.id.tv_label_things_things);
-            tv_digest = (TextView) itemView.findViewById(R.id.tv_digest_things_things);
+            tv_digest = (CenterTextView) itemView.findViewById(R.id.tv_digest_things_things);
         }
     }
 

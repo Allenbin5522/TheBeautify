@@ -7,22 +7,22 @@
     <ImageView
         android:id="@+id/iv_things_things"
         android:layout_width="match_parent"
+        android:scaleType="fitXY"
         android:layout_height="350dp" />
 
 
-    <TextView
+    <com.example.dllo.thebeautiful.view.CenterTextView
         android:id="@+id/tv_digest_things_things"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_marginTop="80dp"
         android:layout_gravity="center"
         android:text="hello"
         android:textSize="15sp"
         android:background="#000000"
-        android:textColor="#838383"
+        android:textColor="#a6a6a6"
         android:alpha="0.7"
         android:padding="5dp" />
-
 
     <LinearLayout
         android:layout_width="match_parent"
