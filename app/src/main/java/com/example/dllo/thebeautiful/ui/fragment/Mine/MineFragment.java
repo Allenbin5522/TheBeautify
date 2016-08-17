@@ -1,4 +1,4 @@
-package com.example.dllo.thebeautiful.ui.fragment.Mine;
+package com.example.dllo.thebeautiful.ui.fragment.mine;
 
 
 import android.support.v7.app.AlertDialog;

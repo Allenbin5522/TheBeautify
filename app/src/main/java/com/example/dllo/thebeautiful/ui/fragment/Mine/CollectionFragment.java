@@ -1,4 +1,4 @@
-package com.example.dllo.thebeautiful.ui.fragment.Mine;
+package com.example.dllo.thebeautiful.ui.fragment.mine;
 
 import com.example.dllo.thebeautiful.R;
 import com.example.dllo.thebeautiful.ui.fragment.AbsBaseFragment;
