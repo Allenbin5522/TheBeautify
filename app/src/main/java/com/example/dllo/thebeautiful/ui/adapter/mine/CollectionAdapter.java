@@ -1,4 +1,4 @@
-package com.example.dllo.thebeautiful.ui.adapter;
+package com.example.dllo.thebeautiful.ui.adapter.mine;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

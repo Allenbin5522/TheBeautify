@@ -1,6 +1,7 @@
 package com.example.dllo.thebeautiful.ui.adapter.things;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,15 +59,15 @@ public class Things_thingsAdapter extends BaseAdapter{
         } else {
             holder = (MyHolder) convertView.getTag();
         }
-        Picasso.with(context).load(bean.getData().getActivities().get(position).getImages().get(0)).into(holder.iv_things);
-        Picasso.with(context).load(bean.getData().getActivities().get(position).getDesigner().getAvatar_url()).into(holder.civ_things);
+        Picasso.with(context).load(bean.getData().getActivities().get(position).getImages().get(0)).config(Bitmap.Config.RGB_565).resize(480, 320).into(holder.iv_things);
+        Picasso.with(context).load(bean.getData().getActivities().get(position).getDesigner().getAvatar_url()).config(Bitmap.Config.RGB_565).resize(480, 320).into(holder.civ_things);
         holder.tv_name.setText(bean.getData().getActivities().get(position).getDesigner().getName());
         holder.tv_label.setText(bean.getData().getActivities().get(position).getDesigner().getLabel());
         holder.tv_digest.setText(bean.getData().getActivities().get(position).getDigest());
         return convertView;
     }
 
-    class MyHolder{
+    class MyHolder {
         private ImageView iv_things;
         private CircleImageView civ_things;
         private TextView tv_name, tv_label;

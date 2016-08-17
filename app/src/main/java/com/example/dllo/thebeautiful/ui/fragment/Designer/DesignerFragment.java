@@ -3,11 +3,11 @@ package com.example.dllo.thebeautiful.ui.fragment.Designer;
 import android.widget.ListView;
 
 import com.example.dllo.thebeautiful.R;
-import com.example.dllo.thebeautiful.model.bean.DesignerBean;
+import com.example.dllo.thebeautiful.model.bean.designer.DesignerBean;
 import com.example.dllo.thebeautiful.model.net.OKHttpInstance;
 import com.example.dllo.thebeautiful.model.net.OnHttpCallBack;
+import com.example.dllo.thebeautiful.ui.adapter.designer.DesignerAdapter;
 import com.example.dllo.thebeautiful.model.net.URLValues;
-import com.example.dllo.thebeautiful.ui.adapter.DesignerAdapter;
 import com.example.dllo.thebeautiful.ui.fragment.AbsBaseFragment;
 import com.google.gson.Gson;
 

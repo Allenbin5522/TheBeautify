@@ -1,4 +1,4 @@
-package com.example.dllo.thebeautiful.model.bean;
+package com.example.dllo.thebeautiful.model.bean.designer;
 
 import java.util.List;
 
