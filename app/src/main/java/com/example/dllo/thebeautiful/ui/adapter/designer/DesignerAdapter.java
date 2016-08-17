@@ -1,4 +1,4 @@
-package com.example.dllo.thebeautiful.ui.adapter;
+package com.example.dllo.thebeautiful.ui.adapter.designer;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dllo.thebeautiful.R;
-import com.example.dllo.thebeautiful.model.bean.DesignerBean;
+import com.example.dllo.thebeautiful.model.bean.designer.DesignerBean;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -61,8 +61,6 @@ public class DesignerAdapter extends BaseAdapter{
         holder.textView_label.setText(designersBeen.get(position).getLabel());
         Picasso.with(context).load(designersBeen.get(position).getRecommend_images().get(0)).into(holder.imageView);
         Picasso.with(context).load(designersBeen.get(position).getAvatar_url()).into(holder.circleImageView);
-
-
 
         return convertView;
     }
