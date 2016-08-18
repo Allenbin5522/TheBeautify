@@ -3,6 +3,7 @@ package com.example.dllo.thebeautiful.ui.adapter.things;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.NavUtils;
 import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;

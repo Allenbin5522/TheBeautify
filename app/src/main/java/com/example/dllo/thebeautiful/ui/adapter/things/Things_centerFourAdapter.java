@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso;
  * Created by dllo on 16/8/17.
  *
  */
-public class Things_othersAdapter extends RecyclerView.Adapter<Things_othersAdapter.MyHolder>{
+public class Things_centerFourAdapter extends RecyclerView.Adapter<Things_centerFourAdapter.MyHolder>{
 
     private Context context;
     private Things_othersBean othersBean;
@@ -27,7 +27,7 @@ public class Things_othersAdapter extends RecyclerView.Adapter<Things_othersAdap
         this.listener = listener;
     }
 
-    public Things_othersAdapter(Context context) {
+    public Things_centerFourAdapter(Context context) {
         this.context = context;
     }
 
@@ -60,6 +60,7 @@ public class Things_othersAdapter extends RecyclerView.Adapter<Things_othersAdap
                 }
             });
         }
+
     }
 
     @Override
