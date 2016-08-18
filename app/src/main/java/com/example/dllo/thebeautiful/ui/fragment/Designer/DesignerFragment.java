@@ -42,7 +42,7 @@ public class DesignerFragment extends AbsBaseFragment implements AdapterView.OnI
 
     @Override
     protected void initDatas() {
-
+        listView.setOnItemClickListener(this);
         OKHttpInstance okHttpInstance = OKHttpInstance.getInstance();
         okHttpInstance.startRequest(URLValues.DESIGNER, new OnHttpCallBack<String>() {
             @Override
@@ -61,7 +61,7 @@ public class DesignerFragment extends AbsBaseFragment implements AdapterView.OnI
 
             }
         });
-        listView.setOnItemClickListener(this);
+
     }
 
     @Override
