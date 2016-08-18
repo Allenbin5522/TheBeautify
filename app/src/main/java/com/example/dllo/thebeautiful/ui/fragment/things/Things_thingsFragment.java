@@ -12,6 +12,8 @@ import com.example.dllo.thebeautiful.model.bean.things.Things_thingsBean;
 import com.example.dllo.thebeautiful.model.net.OKHttpInstance;
 import com.example.dllo.thebeautiful.model.net.OnHttpCallBack;
 import com.example.dllo.thebeautiful.model.net.URLValues;
+import com.example.dllo.thebeautiful.ui.activity.MainActivity;
+import com.example.dllo.thebeautiful.ui.activity.things.ThingsSecondActivity;
 import com.example.dllo.thebeautiful.ui.adapter.things.Things_thingsAdapter;
 import com.example.dllo.thebeautiful.ui.fragment.AbsBaseFragment;
 import com.google.gson.Gson;
@@ -78,7 +80,9 @@ public class Things_thingsFragment extends AbsBaseFragment implements AdapterVie
         //对应要传到二级界面的id
         product_id = String.valueOf(thingsBean.getData().getActivities().get(position).getProduct().getId());
         String url = URLValues.THINGS_SECOND.replace("913",  product_id);
-//        Intent intent = new Intent(context, );
+        Intent intent = new Intent(context, ThingsSecondActivity.class);
+        intent.putExtra("url", url);
+        startActivity(intent);
 
     }
 

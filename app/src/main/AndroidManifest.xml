@@ -30,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.things.ThingsSecondActivity" />
         <activity android:name=".ui.activity.mine.SettingActivity"></activity>
         <activity android:name=".ui.activity.mine.FeedbackActivity"></activity>
         <activity android:name=".ui.activity.mine.CollectionActivity"></activity>

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.example.dllo.thebeautiful.R;
 import com.example.dllo.thebeautiful.model.bean.things.Things_othersBean;
+import com.example.dllo.thebeautiful.ui.interfaces.RecyclerClickListener;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -20,6 +21,11 @@ public class Things_othersAdapter extends RecyclerView.Adapter<Things_othersAdap
 
     private Context context;
     private Things_othersBean othersBean;
+    private RecyclerClickListener listener;
+
+    public void setListener(RecyclerClickListener listener) {
+        this.listener = listener;
+    }
 
     public Things_othersAdapter(Context context) {
         this.context = context;
@@ -38,11 +44,21 @@ public class Things_othersAdapter extends RecyclerView.Adapter<Things_othersAdap
     }
 
     @Override
-    public void onBindViewHolder(MyHolder holder, int position) {
+    public void onBindViewHolder(final MyHolder holder, int position) {
         if (othersBean.getData().getProducts().get(position).getCover_images().size() > 0) {
             Picasso.with(context).load(othersBean.getData().getProducts().get(position).getCover_images().get(0)).config(Bitmap.Config.RGB_565).resize(480, 320).into(holder.iv_cover_image);
         } else {
             holder.iv_cover_image.setImageResource(R.mipmap.ic_launchera);
+        }
+        /**用接口实现recyclerView点击事件*/
+        if (listener != null){
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = holder.getAdapterPosition();
+                    listener.recyclerClick(position);
+                }
+            });
         }
     }
 
