@@ -34,6 +34,7 @@ public class PictorialFragment extends AbsBaseFragment {
     private FrameLayout mFramLayot;
     private static int KEY = 0;
     DeckView<PictorialDatas> mDeckView;
+
     Drawable mDefaultHeaderIcon;
     ArrayList<PictorialDatas> mEntries;
     Bitmap mDefaultThumbnail;

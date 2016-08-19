@@ -46,6 +46,7 @@ public class Things_secondImgAdapter extends PagerAdapter{
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         //删除方法什么都没有
+        container.removeView();
     }
 
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -60,7 +61,12 @@ public class PictorialChildActivity extends AbsBaseActivity {
         Picasso.with(PictorialChildActivity.this).load(datas.getImage_url()).into(title_image);
         web_pic.setHtmlFromString(datas.getContent());
         web_pic.setTextSize(20);
-        web_pic.setPadding(10,10,10,20);
         web_pic.setTextColor(Color.BLACK);
+        web_pic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PictorialChildActivity.this, "11111", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
