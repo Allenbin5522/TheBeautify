@@ -48,6 +48,7 @@
             android:src="@mipmap/comment_back_icon" />
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_setting"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_centerVertical="true"
@@ -159,6 +160,7 @@
         android:background="@android:color/darker_gray" />
 
     <RelativeLayout
+        android:id="@+id/share_friends"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal">
