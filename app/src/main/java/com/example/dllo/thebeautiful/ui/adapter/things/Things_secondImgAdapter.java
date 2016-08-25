@@ -47,8 +47,11 @@ public class Things_secondImgAdapter extends PagerAdapter{
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
+
         View view = LayoutInflater.from(context).inflate(R.layout.item_things_second_vp_imgs, container, false);
         container.removeView(view);
+
+
     }
 
 

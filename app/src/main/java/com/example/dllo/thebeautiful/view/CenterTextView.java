@@ -35,7 +35,6 @@ public class CenterTextView extends TextView{
 
         myStaticLayout = new StaticLayout(getText(), tp, getWidth(),
                 Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
-
     }
 
     @Override

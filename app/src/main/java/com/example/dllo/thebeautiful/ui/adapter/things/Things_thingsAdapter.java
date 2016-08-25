@@ -59,6 +59,8 @@ public class Things_thingsAdapter extends BaseAdapter{
         } else {
             holder = (MyHolder) convertView.getTag();
         }
+
+
         Picasso.with(context).load(bean.getData().getActivities().get(position).getImages().get(0)).config(Bitmap.Config.RGB_565).resize(480, 320).into(holder.iv_things);
         Picasso.with(context).load(bean.getData().getActivities().get(position).getDesigner().getAvatar_url()).config(Bitmap.Config.RGB_565).resize(480, 320).into(holder.civ_things);
         holder.tv_name.setText(bean.getData().getActivities().get(position).getDesigner().getName());

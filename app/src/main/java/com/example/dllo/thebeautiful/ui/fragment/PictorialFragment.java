@@ -1,8 +1,11 @@
 package com.example.dllo.thebeautiful.ui.fragment;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.Toast;
@@ -14,6 +17,7 @@ import com.example.dllo.thebeautiful.model.bean.PictorialBean;
 import com.example.dllo.thebeautiful.model.bean.PictorialDatas;
 import com.example.dllo.thebeautiful.model.net.OKHttpInstance;
 import com.example.dllo.thebeautiful.model.net.OnHttpCallBack;
+import com.example.dllo.thebeautiful.ui.activity.child_activity.PictorialChildActivity;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -30,6 +34,7 @@ public class PictorialFragment extends AbsBaseFragment {
     private FrameLayout mFramLayot;
     private static int KEY = 0;
     DeckView<PictorialDatas> mDeckView;
+
     Drawable mDefaultHeaderIcon;
     ArrayList<PictorialDatas> mEntries;
     Bitmap mDefaultThumbnail;
@@ -65,7 +70,7 @@ public class PictorialFragment extends AbsBaseFragment {
                         pictorialDatas.setHeaderTitle(title);
                         pictorialDatas.setContent(pictorialBean.getData().getArticles().get(i).getContent());
                         pictorialDatas.setSub_title(subTitle);
-
+                        pictorialDatas.setImage_url(pictorialBean.getData().getArticles().get(i).getImage_url());
                         mEntries.add(0, pictorialDatas);
                     }
                     mDeckView = new DeckView<>(context);
@@ -94,7 +99,10 @@ public class PictorialFragment extends AbsBaseFragment {
 
                         @Override
                         public void onItemClick(PictorialDatas item) {
-
+                            Intent intent = new Intent(context, PictorialChildActivity.class);
+                            intent.putExtra("pictorial_datas",item);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(intent);
                         }
 
                         @Override
