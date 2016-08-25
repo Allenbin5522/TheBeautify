@@ -25,6 +25,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by dllo on 16/8/17.
+ * 有物界面 点击后进入的 二级界面
  */
 public class ThingsSecondActivity extends AbsBaseActivity implements View.OnClickListener {
 
@@ -58,6 +59,7 @@ public class ThingsSecondActivity extends AbsBaseActivity implements View.OnClic
         tv_concept = byView(R.id.tv_things_second_concept);
         tv_describe = byView(R.id.tv_things_second_describe);
         tv_desc = byView(R.id.tv_things_second_desc);
+
         listView = byView(R.id.ls_things_second);
         scrollView = byView(R.id.scrollView_things_second);
     }
@@ -65,10 +67,15 @@ public class ThingsSecondActivity extends AbsBaseActivity implements View.OnClic
     @Override
     protected void initDatas() {
         url = getIntent().getStringExtra("url");
+
         analysis();
 
         //让scrollView置顶,因为有别的组件抢焦点
-        scrollView.smoothScrollTo(0, 0);
+        scrollView.scrollTo(0, 0);
+        //给组件设置焦点
+        iv_back.setFocusable(true);
+        iv_back.setFocusableInTouchMode(true);
+        iv_back.requestFocus();
 
         iv_back.setOnClickListener(this);
     }

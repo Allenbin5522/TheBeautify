@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/8/18.
+ * 有物二级界面 listview的适配器
  */
 public class Things_secondLsAdapter extends BaseAdapter{
 
@@ -32,12 +33,12 @@ public class Things_secondLsAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return secondBean.getData().getImages() != null ? secondBean.getData().getImages().size() : 0;
+        return secondBean.getData().getImages().size();
     }
 
     @Override
     public Object getItem(int position) {
-        return secondBean.getData().getImages() != null ? secondBean.getData().getImages() : 0;
+        return secondBean.getData().getImages() != null ? secondBean.getData().getImages().get(position) : null;
     }
 
     @Override
@@ -49,7 +50,7 @@ public class Things_secondLsAdapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
         MyHolder holder = null;
         if (convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_things_second_imgs, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_things_second_imgs, null);
             holder = new MyHolder(convertView);
             convertView.setTag(holder);
         } else {

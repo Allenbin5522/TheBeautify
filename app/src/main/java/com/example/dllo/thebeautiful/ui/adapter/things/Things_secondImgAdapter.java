@@ -14,10 +14,12 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/8/18.
+ * 有物二级界面轮播图适配器
  */
 public class Things_secondImgAdapter extends PagerAdapter{
     private Context context;
     private List<String> imgUrls;
+
 
     public Things_secondImgAdapter(Context context, List<String> imgUrls) {
         this.context = context;
@@ -36,7 +38,7 @@ public class Things_secondImgAdapter extends PagerAdapter{
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_things_second_vp_imgs, container, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_things_second_vp_imgs, container, false);//如果是true,则得到的是container
         ImageView iv_vp = (ImageView) view.findViewById(R.id.iv_item_things_second_vp);
         Picasso.with(context).load(imgUrls.get(position)).into(iv_vp);
         container.addView(view);
@@ -45,7 +47,8 @@ public class Things_secondImgAdapter extends PagerAdapter{
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-
+        View view = LayoutInflater.from(context).inflate(R.layout.item_things_second_vp_imgs, container, false);
+        container.removeView(view);
     }
 
 
