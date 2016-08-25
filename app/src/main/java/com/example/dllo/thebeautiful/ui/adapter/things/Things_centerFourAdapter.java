@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 
 /**
  * Created by dllo on 16/8/17.
- *
+ * 有物中间四个界面 RecyclerView 的适配器
  */
 public class Things_centerFourAdapter extends RecyclerView.Adapter<Things_centerFourAdapter.MyHolder>{
 

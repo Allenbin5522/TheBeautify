@@ -6,26 +6,29 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/line_category"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="#525252">
         <TextView
-            android:layout_width="0dp"
+            android:id="@+id/tv_category_things"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginTop="7dp"
             android:text="全部"
             android:textColor="#ffffff"
             android:textSize="13sp"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center"/>
+            android:layout_marginLeft="10dp" />
         <ImageView
+            android:id="@+id/iv_category_things"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/icon_category_unfold"
-            android:layout_gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_things_others"
