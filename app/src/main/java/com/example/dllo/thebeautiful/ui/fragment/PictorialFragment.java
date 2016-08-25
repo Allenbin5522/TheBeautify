@@ -15,6 +15,7 @@ import com.appeaser.deckview.views.DeckView;
 import com.example.dllo.thebeautiful.R;
 import com.example.dllo.thebeautiful.model.bean.PictorialBean;
 import com.example.dllo.thebeautiful.model.bean.PictorialDatas;
+import com.example.dllo.thebeautiful.model.bean.designer.DesignerBean;
 import com.example.dllo.thebeautiful.model.net.OKHttpInstance;
 import com.example.dllo.thebeautiful.model.net.OnHttpCallBack;
 import com.example.dllo.thebeautiful.ui.activity.child_activity.PictorialChildActivity;
@@ -54,6 +55,10 @@ public class PictorialFragment extends AbsBaseFragment {
 
     @Override
     protected void initDatas() {
+        setPicDatas();
+    }
+
+    private void setPicDatas() {
         if (mEntries == null) {
             mEntries = new ArrayList<>();
             OKHttpInstance.getInstance().startRequest(url, new OnHttpCallBack<String>() {
@@ -64,7 +69,7 @@ public class PictorialFragment extends AbsBaseFragment {
                     for (int i = 0; i < pictorialBean.getData().getArticles().size(); i++) {
                         PictorialDatas pictorialDatas = new PictorialDatas();
                         pictorialDatas.setLink(pictorialBean.getData().getArticles().get(i).getImage_url());
-                        pictorialDatas.setId(generateUniqueKey());
+                        pictorialDatas.setId(pictorialBean.getData().getArticles().get(i).getId());
                         String title = pictorialBean.getData().getArticles().get(i).getTitle();
                         String subTitle = pictorialBean.getData().getArticles().get(i).getSub_title();
                         pictorialDatas.setHeaderTitle(title);

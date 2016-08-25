@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <ScrollView
+        android:id="@+id/sv_pic_child"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
@@ -60,6 +61,7 @@
 
 
     <LinearLayout
+        android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -69,6 +71,7 @@
             android:id="@+id/image_pictorial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="20dp"
             android:src="@mipmap/ic_circle_back_normal" />
 
@@ -76,7 +79,7 @@
             android:id="@+id/rv_pictorial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
+            android:layout_marginLeft="100dp"
             android:background="@drawable/shape_pic_child">
 
             <TextView
@@ -97,10 +100,10 @@
                 android:textColor="#ffffff" />
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/author_pic_child"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_toRightOf="@id/name_pictorial"
                 android:src="@mipmap/ic_launcher" />
         </RelativeLayout>

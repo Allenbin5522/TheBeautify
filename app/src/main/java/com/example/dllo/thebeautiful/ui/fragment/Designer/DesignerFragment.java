@@ -1,6 +1,7 @@
 package com.example.dllo.thebeautiful.ui.fragment.designer;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -54,6 +55,8 @@ public class DesignerFragment extends AbsBaseFragment implements AdapterView.OnI
                 adapter = new DesignerAdapter(context);
                 adapter.setDesignersBeen(designersBeen);
                 listView.setAdapter(adapter);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("qqq",designerBean);
             }
 
             @Override

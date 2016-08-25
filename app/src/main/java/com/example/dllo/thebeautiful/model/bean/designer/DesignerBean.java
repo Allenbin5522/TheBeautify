@@ -1,11 +1,14 @@
 package com.example.dllo.thebeautiful.model.bean.designer;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
  * Created by dllo on 16/8/17.
  */
-public class DesignerBean {
+public class DesignerBean implements Parcelable {
 
     /**
      * has_next : 1
@@ -19,6 +22,22 @@ public class DesignerBean {
      */
 
     private int result;
+
+    protected DesignerBean(Parcel in) {
+        result = in.readInt();
+    }
+
+    public static final Creator<DesignerBean> CREATOR = new Creator<DesignerBean>() {
+        @Override
+        public DesignerBean createFromParcel(Parcel in) {
+            return new DesignerBean(in);
+        }
+
+        @Override
+        public DesignerBean[] newArray(int size) {
+            return new DesignerBean[size];
+        }
+    };
 
     public DataBean getData() {
         return data;
@@ -34,6 +53,16 @@ public class DesignerBean {
 
     public void setResult(int result) {
         this.result = result;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(result);
     }
 
     public static class DataBean {

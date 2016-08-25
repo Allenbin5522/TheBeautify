@@ -18,6 +18,7 @@ public class PictorialDatas implements Parcelable{
     private String label;//创始人
     private  String sub_title;
 
+
     public PictorialDatas() {
     }
 
