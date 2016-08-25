@@ -1,5 +1,7 @@
 package com.example.dllo.thebeautiful.model.net;
 
+import android.widget.TabHost;
+
 /**
  * Created by dllo on 16/8/16.
  * 所有的接口
@@ -23,8 +25,11 @@ public class URLValues {
     //其他
     public static final String THINGS_OTHERS = "http://design.zuimeia.com/api/v1/products/category/54?page=1&page_size=30&device_id=867886023232352&platform=android&lang=zh&appVersion=1.0.6&appVersionCode=10006&systemVersion=22&countryCode=CN&user_id=0&token=&package_name=com.zuiapps.zuiworld";
 
+    //有物界面pop目录
+    public static final String THINGS_POP = "http://design.zuimeia.com/api/v1/product/categories/?device_id=867886023232352&platform=android&lang=zh&appVersion=1.0.6&appVersionCode=10006&systemVersion=22&countryCode=CN&user_id=0&token=&package_name=com.zuiapps.zuiworld";
     //有物二级界面
     public static final String THINGS_SECOND = "http://design.zuimeia.com/api/v1/product/913/?device_id=000000000000000&platform=android&lang=zh&appVersion=1.1.5&appVersionCode=10105&systemVersion=22&countryCode=CN&user_id=0&token=&package_name=com.zuiapps.zuiworld";
+
 
 
 

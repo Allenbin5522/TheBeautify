@@ -21,7 +21,7 @@ import com.google.gson.Gson;
 
 /**
  * Created by dllo on 16/8/16.
- * 有物界面复用的一级界面 (tablayout里的后5个)
+ * 有物界面复用的一级界面 (tablayout里的中间4个)
  */
 public class Things_centerFourFragments extends AbsBaseFragment{
 
@@ -104,6 +104,11 @@ public class Things_centerFourFragments extends AbsBaseFragment{
                 startActivity(intent);
             }
         });
+    }
+
+
+    public void initPop(){
+
     }
 
 

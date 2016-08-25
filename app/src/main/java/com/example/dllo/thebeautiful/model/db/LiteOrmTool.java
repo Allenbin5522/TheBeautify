@@ -60,6 +60,14 @@ public class LiteOrmTool {
     }
 
 
+    public <T> void delete(T t){
+        getDbInstance()._delete(t);
+    }
+
+    private <T> void _delete(T t) {
+        liteOrm.delete(t);
+    }
+
 
 
 }
