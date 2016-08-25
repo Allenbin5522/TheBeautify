@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.example.dllo.thebeautiful.R;
 import com.example.dllo.thebeautiful.model.bean.things.Things_othersBean;
 import com.example.dllo.thebeautiful.model.bean.things.Things_popBean;
+import com.example.dllo.thebeautiful.model.bean.things.Things_popNewBean;
 import com.example.dllo.thebeautiful.model.db.LiteOrmTool;
 import com.example.dllo.thebeautiful.model.net.OKHttpInstance;
 import com.example.dllo.thebeautiful.model.net.OnHttpCallBack;
@@ -36,6 +37,9 @@ import com.example.dllo.thebeautiful.ui.adapter.things.Things_othersAdapter;
 import com.example.dllo.thebeautiful.ui.fragment.AbsBaseFragment;
 import com.example.dllo.thebeautiful.ui.interfaces.RecyclerClickListener;
 import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by dllo on 16/8/16.
@@ -71,7 +75,7 @@ public class Things_othersFragments extends AbsBaseFragment implements View.OnCl
     protected void initDatas() {
         iv_pop = ByView(R.id.iv_category_things);
         line_pop = ByView(R.id.line_category);
-        line_pop.setOnClickListener(this);
+        iv_pop.setOnClickListener(this);
         tv_category = ByView(R.id.tv_category_things);
         popAdapter = new Things_Others_popAdapter(context);
 
@@ -105,7 +109,6 @@ public class Things_othersFragments extends AbsBaseFragment implements View.OnCl
 
                 GridLayoutManager gm = new GridLayoutManager(context, 2, LinearLayoutManager.VERTICAL,false);
                 recyclerView.setLayoutManager(gm);
-
                 recyclerView.setAdapter(othersAdapter);
             }
 
@@ -141,9 +144,13 @@ public class Things_othersFragments extends AbsBaseFragment implements View.OnCl
      */
     @Override
     public void onClick(View v) {
-        iv_pop.setImageResource(R.mipmap.icon_category_fold);
-        popupWindow.showAsDropDown(line_pop);
-        tv_category.setVisibility(View.GONE);
+        switch (v.getId()){
+            case R.id.iv_category_things:
+                iv_pop.setImageResource(R.mipmap.icon_category_fold);
+                popupWindow.showAsDropDown(line_pop);
+                tv_category.setVisibility(View.GONE);
+                break;
+        }
 
     }
 
@@ -181,19 +188,28 @@ public class Things_othersFragments extends AbsBaseFragment implements View.OnCl
             public void onSuccess(String response) {
                 Gson gson = new Gson();
                 popBean = gson.fromJson(response, Things_popBean.class);
+                //为了讲"全部"加到解出来的集合里0位置,所以初始化个集合,然后加到0位置
+                final ArrayList<Things_popNewBean> datas = new ArrayList<>();
+                List<Things_popBean.DataBean.CategoriesBean.SubCategoriesBean> array = popBean.getData().getCategories().get(5).getSub_categories();
+                for (int i = 0; i < array.size(); i++) {
+                   datas.add(new Things_popNewBean(array.get(i).getId(), array.get(i).getName()));
+                }
+                datas.add(0, new Things_popNewBean(54, "全部"));
+
                 popAdapter = new Things_Others_popAdapter(context);
-                popAdapter.setPopBean(popBean);
+//                popAdapter.setPopBean(popBean);
+                popAdapter.setDatas(datas);
                 gv_pop.setAdapter(popAdapter);
                 gv_pop.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Toast.makeText(context, "hahah", Toast.LENGTH_SHORT).show();
-                        Log.d("Things_othersFragments", "haha");
-                        String things_id = String.valueOf(popBean.getData().getCategories().get(5).getSub_categories().get(position).getId());
+//                        String things_id = String.valueOf(popBean.getData().getCategories().get(5).getSub_categories().get(position).getId());
+                        String things_id = String.valueOf(datas.get(position).getId());
                         parsePopContent(things_id);
                         popupWindow.dismiss();
                         tv_category.setVisibility(View.VISIBLE);
-                        tv_category.setText(popBean.getData().getCategories().get(0).getSub_categories().get(position).getName());
+//                        tv_category.setText(popBean.getData().getCategories().get(5).getSub_categories().get(position).getName());
+                        tv_category.setText(datas.get(position).getName());
                     }
                 });
             }
