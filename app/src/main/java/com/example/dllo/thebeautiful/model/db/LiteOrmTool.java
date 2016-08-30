@@ -3,6 +3,7 @@ package com.example.dllo.thebeautiful.model.db;
 import android.content.Context;
 
 import com.example.dllo.thebeautiful.ui.app.MyApp;
+import com.example.dllo.thebeautiful.utils.T;
 import com.litesuits.orm.LiteOrm;
 
 import java.util.List;
@@ -51,12 +52,12 @@ public class LiteOrmTool {
     }
 
 
-    public <T> void query(Class<T> t){
-        getDbInstance()._query(t);
+    public <T> List<T> queryAll(Class<T> t){
+        return getDbInstance()._queryAll(t);
     }
 
-    private <T> void _query(Class<T> t) {
-        List<T> datas = liteOrm.query(t);
+    private <T> List<T> _queryAll(Class<T> t) {
+        return liteOrm.query(t);
     }
 
 

@@ -1,5 +1,7 @@
 package com.example.dllo.thebeautiful.model.bean.things;
 
+import com.example.dllo.thebeautiful.R;
+
 import java.util.List;
 
 /**
@@ -185,6 +187,33 @@ public class Things_thingsBean {
                 private String label;
                 private String avatar_url;
                 private int id;
+                private boolean isChecked;
+                private int disLikeBackGround = R.drawable.shape_things_dislike_layout;
+                private int likeBackGround = R.drawable.shape_things_dislike_layout;
+
+                public int getDisLikeBackGround() {
+                    return disLikeBackGround;
+                }
+
+                public void setDisLikeBackGround(int disLikeBackGround) {
+                    this.disLikeBackGround = disLikeBackGround;
+                }
+
+                public int getLikeBackGround() {
+                    return likeBackGround;
+                }
+
+                public void setLikeBackGround(int likeBackGround) {
+                    this.likeBackGround = likeBackGround;
+                }
+
+                public boolean isChecked() {
+                    return isChecked;
+                }
+
+                public void setChecked(boolean checked) {
+                    isChecked = checked;
+                }
 
                 public String getCity() {
                     return city;
