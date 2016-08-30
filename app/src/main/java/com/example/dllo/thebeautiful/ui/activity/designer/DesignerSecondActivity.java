@@ -133,6 +133,7 @@ public class DesignerSecondActivity extends AbsBaseActivity implements View.OnCl
                 final int startValue = textView_description.getHeight();  // 起始高度
                 int durationMillis = 200; // 动画持续时间
                 if (isExpand) {
+
                     /**
                      * 折叠动画
                      * 从实际高度缩回起始高度

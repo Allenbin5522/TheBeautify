@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#222222">
+
+    <!--<TextView-->
+        <!--android:id="@+id/v_below"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="10dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:background="#222222"/>-->
 
     <ImageView
         android:id="@+id/iv_things_things"
@@ -10,13 +19,12 @@
         android:scaleType="fitXY"
         android:layout_height="350dp" />
 
-
     <com.example.dllo.thebeautiful.view.CenterTextView
         android:id="@+id/tv_digest_things_things"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:layout_marginTop="80dp"
-        android:layout_gravity="center"
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true"
         android:text="hello"
         android:textSize="15sp"
         android:background="#000000"
@@ -24,33 +32,31 @@
         android:alpha="0.7"
         android:padding="5dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="260dp"
         android:layout_height="70dp"
-        android:layout_marginTop="350dp"
-        android:background="#222222">
+        android:layout_marginTop="350dp">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/civ_things_things"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"/>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:orientation="vertical"
-                android:layout_gravity="center">
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/civ_things_things">
                 <TextView
                     android:id="@+id/tv_name_things_things"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="hello"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
+                    android:maxEms="20"
+                    android:ellipsize="end"
                     android:textColor="#a6a6a6"/>
 
                 <TextView
@@ -58,33 +64,79 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="hello"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textColor="#838383"/>
             </LinearLayout>
-        </LinearLayout>
 
-        <LinearLayout
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="65dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="10dp">
+        <TextView
+            android:id="@+id/tv_thing_dislike_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
-            <ImageView
+            android:lines="2"
+            android:maxEms="3"
+            android:textColor="#EBCD51"
+            android:textSize="8sp"
+            android:visibility="gone"/>
+        <RelativeLayout
+            android:id="@+id/layout_things_dislike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_thing_dislike_num"
+            android:background="@drawable/shape_things_dislike_layout">
+            <CheckBox
+                android:id="@+id/cb_dislike"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/feed_dislike"/>
-            <View
-                android:layout_width="2dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:background="#838383"/>
-            <ImageView
+                android:background="@mipmap/feed_dislike"
+                android:focusable="false"
+                android:button="@null"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:id="@+id/tv_thing_like_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:maxEms="3"
+            android:textColor="#EBCD51"
+            android:textSize="8sp"
+            android:visibility="gone"/>
+        <RelativeLayout
+            android:id="@+id/layout_things_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_thing_like_num"
+            android:background="@drawable/shape_things_dislike_layout">
+            <CheckBox
+                android:id="@+id/cb_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/feed_like"
-                android:layout_marginRight="10dp"/>
-        </LinearLayout>
-    </LinearLayout>
+                android:background="@mipmap/feed_like"
+                android:focusable="false"
+                android:button="@null"/>
+        </RelativeLayout>
+    </RelativeLayout>
 
 
-</FrameLayout>
+    
+</RelativeLayout>

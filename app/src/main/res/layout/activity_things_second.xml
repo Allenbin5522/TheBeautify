@@ -191,6 +191,7 @@
             android:paddingLeft="5dp"
             android:background="@drawable/shape_things_things_edittext"/>
         <LinearLayout
+            android:id="@+id/line_"
             android:layout_width="50dp"
             android:layout_height="50dp">
             <ImageView
