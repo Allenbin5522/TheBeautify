@@ -1,27 +1,35 @@
 package com.example.dllo.thebeautiful.ui.adapter.designer;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dllo.thebeautiful.R;
 import com.example.dllo.thebeautiful.model.bean.designer.DesignerBean;
+import com.example.dllo.thebeautiful.model.bean.mine.CollectFocusBean;
+import com.example.dllo.thebeautiful.model.db.LiteOrmTool;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+
 /**
  * Created by dllo on 16/8/17.
  */
-public class DesignerAdapter extends BaseAdapter {
+public class DesignerAdapter extends BaseAdapter implements View.OnClickListener {
     private List<DesignerBean.DataBean.DesignersBean> designersBeen;
     private Context context;
+    private String image,circleImageView,name,label;
+    private Boolean isCollect = true;
 
     public DesignerAdapter(Context context) {
         this.context = context;
@@ -59,6 +67,7 @@ public class DesignerAdapter extends BaseAdapter {
         }
         holder.textView_name.setText(designersBeen.get(position).getName());
         holder.textView_label.setText(designersBeen.get(position).getLabel());
+        holder.button.setOnClickListener(this);
 
         if (designersBeen.get(position).getAvatar_url().isEmpty()) {
             holder.circleImageView.setImageResource(R.mipmap.ic_launchera);
@@ -73,17 +82,30 @@ public class DesignerAdapter extends BaseAdapter {
         return convertView;
     }
 
+    @Override
+    public void onClick(View v) {
+        if (isCollect){
+            LiteOrmTool.getDbInstance().insert(new CollectFocusBean(image,circleImageView,name,label));
+            isCollect = false;
+
+        }else {
+            Log.d("DesignerAdapter", "已收藏");
+        }
+    }
+
 
     class ViewHolder {
         private ImageView imageView;
         private CircleImageView circleImageView;
         private TextView textView_name, textView_label;
+        private Button button;
 
         public ViewHolder(View view) {
             imageView = (ImageView) view.findViewById(R.id.iv_designer);
             circleImageView = (CircleImageView) view.findViewById(R.id.civ_designer_head);
             textView_name = (TextView) view.findViewById(R.id.tv_name_designer);
             textView_label = (TextView) view.findViewById(R.id.tv_label_designer);
+            button = (Button) view.findViewById(R.id.button_design);
         }
     }
 

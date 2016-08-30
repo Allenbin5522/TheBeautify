@@ -3,10 +3,15 @@ package com.example.dllo.thebeautiful.ui.fragment.designer;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dllo.thebeautiful.R;
 import com.example.dllo.thebeautiful.model.bean.designer.DesignerBean;
+import com.example.dllo.thebeautiful.model.bean.mine.CollectFocusBean;
+import com.example.dllo.thebeautiful.model.db.LiteOrmTool;
 import com.example.dllo.thebeautiful.model.net.OKHttpInstance;
 import com.example.dllo.thebeautiful.model.net.OnHttpCallBack;
 import com.example.dllo.thebeautiful.ui.adapter.designer.DesignerAdapter;
@@ -29,6 +34,7 @@ public class DesignerFragment extends AbsBaseFragment implements AdapterView.OnI
     private ListView listView;
     private DesignerAdapter adapter;
     private List<DesignerBean.DataBean.DesignersBean> designersBeen;
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_designer;
@@ -42,7 +48,9 @@ public class DesignerFragment extends AbsBaseFragment implements AdapterView.OnI
 
     @Override
     protected void initDatas() {
+
         listView.setOnItemClickListener(this);
+
         OKHttpInstance okHttpInstance = OKHttpInstance.getInstance();
         okHttpInstance.startRequest(URLValues.DESIGNER, new OnHttpCallBack<String>() {
             @Override
@@ -74,4 +82,7 @@ public class DesignerFragment extends AbsBaseFragment implements AdapterView.OnI
 
 
     }
+
+
+
 }
