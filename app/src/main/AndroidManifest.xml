@@ -36,9 +36,9 @@
         <activity android:name=".ui.activity.mine.CollectionActivity"></activity>
         <activity android:name=".ui.activity.mine.FocusActivity"></activity>
         <activity android:name=".ui.activity.mine.WishActivity"></activity>
-        <activity android:name=".ui.activity.child_activity.PictorialChildActivity"/>
-
+        <activity android:name=".ui.activity.pictorial.PictorialChildActivity"/>
         <activity android:name=".ui.activity.designer.DesignerSecondActivity"></activity>
+        <activity android:name=".ui.activity.pictorial.PictorialThirdActivity"/>
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"

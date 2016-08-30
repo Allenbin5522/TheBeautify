@@ -1,28 +1,23 @@
-package com.example.dllo.thebeautiful.ui.activity.child_activity;
+package com.example.dllo.thebeautiful.ui.activity.pictorial;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.dllo.thebeautiful.R;
-import com.example.dllo.thebeautiful.model.bean.PicThirdBean;
-import com.example.dllo.thebeautiful.model.bean.PictorialBean;
-import com.example.dllo.thebeautiful.model.bean.PictorialDatas;
-import com.example.dllo.thebeautiful.model.bean.designer.DesignerBean;
+import com.example.dllo.thebeautiful.model.bean.picbeans.PicChildBean;
+import com.example.dllo.thebeautiful.model.bean.picbeans.PicHeadProtraitBean;
+import com.example.dllo.thebeautiful.model.bean.picbeans.PictorialDatas;
 import com.example.dllo.thebeautiful.model.net.OKHttpInstance;
 import com.example.dllo.thebeautiful.model.net.OnHttpCallBack;
+import com.example.dllo.thebeautiful.model.net.URLValues;
 import com.example.dllo.thebeautiful.ui.activity.AbsBaseActivity;
 import com.example.dllo.thebeautiful.view.richtext.*;
 import com.squareup.picasso.Picasso;
@@ -34,18 +29,19 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Created by dllo on 16/8/17.
  */
-public class PictorialChildActivity extends AbsBaseActivity implements View.OnScrollChangeListener {
-    private ImageView iv_comment, iv_like, iv_more, iv_back, title_image;
+public class PictorialChildActivity extends AbsBaseActivity implements View.OnScrollChangeListener, View.OnClickListener {
+    private ImageView iv_comment, iv_like, iv_more, iv_back, title_image,back_pic;
     private CircleImageView head_civ, author_pic_child;
     private Button some_btn;
     private RelativeLayout rv_pic;
+    private TextView name_tv,city_tv,commont_tv,favo_tv;
     private HtmlTextView web_pic;
     private PictorialDatas datas;
     private TextView title_tv, sub_title_tv;
     private ScrollView sv_pic_child;
     private TranslateAnimation translateAnimation;
     private boolean isUp = true, isDown = true;
-    private LinearLayout ll;
+    private RelativeLayout ll;
     private String idUrl;
 
     @Override
@@ -55,6 +51,11 @@ public class PictorialChildActivity extends AbsBaseActivity implements View.OnSc
 
     @Override
     protected void initViews() {
+        commont_tv = byView(R.id.commont_num_tv);
+        favo_tv = byView(R.id.favo_num);
+        back_pic = byView(R.id.back_pictorial);
+        city_tv = byView(R.id.city_pic);
+        name_tv = byView(R.id.name_pictorial);
         sv_pic_child = byView(R.id.sv_pic_child);
         title_tv = byView(R.id.title_pic_child);
         title_image = byView(R.id.title_image);
@@ -76,10 +77,13 @@ public class PictorialChildActivity extends AbsBaseActivity implements View.OnSc
         Intent intent = getIntent();
         datas = intent.getParcelableExtra("pictorial_datas");
         idUrl = "http://design.zuimeia.com/api/v1/article/"+datas.getId() +"/?device_id=000000000000000&platform=android&lang=zh&appVersion=1.1.7_1&appVersionCode=10171&systemVersion=22&countryCode=CN&user_id=0&token=&package_name=com.zuiapps.zuiworld";
-
         setHtmlText();
+        showNum();
         sv_pic_child.setOnScrollChangeListener(this);
         parseThirdDatas();
+        back_pic.setOnClickListener(this);
+        iv_comment.setOnClickListener(this);
+        iv_like.setOnClickListener(this);
 
     }
 
@@ -119,12 +123,16 @@ public class PictorialChildActivity extends AbsBaseActivity implements View.OnSc
         }
     }
     public void parseThirdDatas(){
-        OKHttpInstance.getInstance().startRequest(idUrl, PicThirdBean.class, new OnHttpCallBack<PicThirdBean>() {
+        OKHttpInstance.getInstance().startRequest(idUrl, PicHeadProtraitBean.class, new OnHttpCallBack<PicHeadProtraitBean>() {
             @Override
-            public void onSuccess(PicThirdBean response) {
-                List<PicThirdBean.DataBean.DesignersBean> datas = response.getData().getDesigners();
+            public void onSuccess(PicHeadProtraitBean response) {
+                List<PicHeadProtraitBean.DataBean.DesignersBean> datas = response.getData().getDesigners();
                 for (int i = 0;i<datas.size();i++){
                     String articleUrl = response.getData().getDesigners().get(i).getAvatar_url();
+                    String name = response.getData().getDesigners().get(i).getName();
+                    String city = response.getData().getDesigners().get(i).getCity();
+                    name_tv.setText(name);
+                    city_tv.setText(city);
                     Picasso.with(PictorialChildActivity.this).load(articleUrl).into(author_pic_child);
                 }
 
@@ -135,5 +143,41 @@ public class PictorialChildActivity extends AbsBaseActivity implements View.OnSc
 
             }
         });
+    }
+    private void showNum(){
+        OKHttpInstance.getInstance().startRequest(URLValues.PIC_CHILD_START + datas.getId() + URLValues.PIC_CHILD_END, PicChildBean.class, new OnHttpCallBack<PicChildBean>() {
+            @Override
+            public void onSuccess(PicChildBean response) {
+                int commont_num = response.getData().getComment_num();
+                int fove_use_num = response.getData().getFavor_user_num();
+                commont_tv.setText(String .valueOf(commont_num));
+                favo_tv.setText(String .valueOf(fove_use_num));
+            }
+
+            @Override
+            public void onError(Throwable ex) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back_pictorial:
+                finish();
+                break;
+            case R.id.article_comment_pic:
+                Intent intent = new Intent(this,PictorialThirdActivity.class);
+                intent.putExtra("picThird",datas);
+                startActivity(intent);
+                break;
+            case R.id.article_like_pic:
+
+                break;
+            case R.id.article_more_pic:
+
+                break;
+        }
     }
 }

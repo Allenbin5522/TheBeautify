@@ -1,4 +1,4 @@
-package com.example.dllo.thebeautiful.model.bean;
+package com.example.dllo.thebeautiful.model.bean.picbeans;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -17,7 +17,6 @@ public class PictorialDatas implements Parcelable{
     private  String name;
     private String label;//创始人
     private  String sub_title;
-
 
     public PictorialDatas() {
     }

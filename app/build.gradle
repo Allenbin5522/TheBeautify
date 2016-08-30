@@ -42,5 +42,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.1.0'
     compile project(':deckview')
     compile 'com.youth.banner:banner:+'
-
+    compile files('libs/lite-orm-1.9.2.jar')
 }

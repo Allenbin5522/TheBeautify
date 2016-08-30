@@ -29,7 +29,11 @@ public class URLValues {
     public static final String THINGS_POP = "http://design.zuimeia.com/api/v1/product/categories/?device_id=867886023232352&platform=android&lang=zh&appVersion=1.0.6&appVersionCode=10006&systemVersion=22&countryCode=CN&user_id=0&token=&package_name=com.zuiapps.zuiworld";
     //有物二级界面
     public static final String THINGS_SECOND = "http://design.zuimeia.com/api/v1/product/913/?device_id=000000000000000&platform=android&lang=zh&appVersion=1.1.5&appVersionCode=10105&systemVersion=22&countryCode=CN&user_id=0&token=&package_name=com.zuiapps.zuiworld";
-
+    /**
+     *画报二级界面
+     */
+    public static final String PIC_CHILD_START = "http://design.zuimeia.com/api/v1/article/";
+    public static final String PIC_CHILD_END = "/?device_id=000000000000000&platform=android&lang=zh&appVersion=1.1.7_1&appVersionCode=10171&systemVersion=22&countryCode=CN&user_id=0&token=&package_name=com.zuiapps.zuiworld";
 
 
 

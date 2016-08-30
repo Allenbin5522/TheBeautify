@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<include layout="@layout/title_picthird"/>
+    <ListView
+        android:id="@+id/ls_picthird"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:layout_marginTop="40dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="#ffffff">
+
+        <ImageView
+            android:id="@+id/picthird_imageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:padding="10dp"
+            android:src="@mipmap/ic_launchera" />
+
+        <EditText
+            android:id="@+id/picthird_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="7dp"
+            android:layout_toEndOf="@+id/picthird_imageView"
+            android:background="#efefef"
+            android:hint="说点什么吧           "
+            android:padding="10dp"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/picthird_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignTop="@+id/picthird_editText"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/picthird_editText"
+            android:text="发送"
+            android:textSize="20sp" />
+    </RelativeLayout>
+</FrameLayout>
