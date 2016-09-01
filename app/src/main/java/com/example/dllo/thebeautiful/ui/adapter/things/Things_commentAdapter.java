@@ -29,9 +29,8 @@ public class Things_commentAdapter extends BaseAdapter{
         this.context = context;
     }
 
-    public void setSecondBean(Things_secondBean secondBean) {
-        this.secondBean = secondBean;
-        notifyDataSetChanged();
+    public void setCommentsBeen(List<Things_secondBean.DataBean.CommentsBean> commentsBeen) {
+        this.commentsBeen = commentsBeen;
     }
 
     @Override
@@ -73,6 +72,7 @@ public class Things_commentAdapter extends BaseAdapter{
         private CircleImageView civ_image;
         private TextView tv_name, tv_content, tv_time;
         public MyHolder(View itemView) {
+            civ_image = (CircleImageView) itemView.findViewById(R.id.head_portrait);
             tv_name = (TextView) itemView.findViewById(R.id.name_picthird);
             tv_content = (TextView) itemView.findViewById(R.id.content_talk);
             tv_time = (TextView) itemView.findViewById(R.id.time_picthird);

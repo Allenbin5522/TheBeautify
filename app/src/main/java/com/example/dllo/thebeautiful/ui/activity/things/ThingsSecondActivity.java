@@ -43,7 +43,6 @@ public class ThingsSecondActivity extends AbsBaseActivity implements View.OnClic
     private Things_secondLsAdapter lsAdapter;
     private ListView listView;
     private ScrollView scrollView;
-    private String response;
 
     @Override
     protected int setLayout() {
@@ -91,7 +90,6 @@ public class ThingsSecondActivity extends AbsBaseActivity implements View.OnClic
             public void onSuccess(String response) {
                 Gson gson = new Gson();
                 secondBean = gson.fromJson(response, Things_secondBean.class);
-                response = response;
                 Log.d("ThingsSecondActivity", response);
                 imgUrls = secondBean.getData().getCover_images();
                 imgAdapter = new Things_secondImgAdapter(ThingsSecondActivity.this, imgUrls);
@@ -135,8 +133,8 @@ public class ThingsSecondActivity extends AbsBaseActivity implements View.OnClic
                 break;
             case R.id.line_comment_things:
                 Intent intent = new Intent(this, ThingsCommentActivity.class);
-//                intent.putExtra("commentResult", response);
-//                Log.d("ThingsSecondActivity", response);
+                intent.putExtra("Url", url);
+                Log.d("ThingsSecondActivity-----?", url);
                 startActivity(intent);
                 break;
         }
