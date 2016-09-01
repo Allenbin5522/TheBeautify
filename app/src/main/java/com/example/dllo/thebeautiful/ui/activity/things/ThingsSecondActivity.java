@@ -1,5 +1,7 @@
 package com.example.dllo.thebeautiful.ui.activity.things;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -32,15 +34,16 @@ public class ThingsSecondActivity extends AbsBaseActivity implements View.OnClic
     private String url;
     private Things_secondBean secondBean;
     private ViewPager vp_things_second;
-    private LinearLayout line_pointContainer;
+    private LinearLayout line_pointContainer, line_comment;
     private Things_secondImgAdapter imgAdapter;
     private List<String> imgUrls;
     private ImageView iv_back;
     private CircleImageView civ_designer;
-    private TextView tv_digest, tv_name, tv_label, tv_concept, tv_describe, tv_desc;
+    private TextView tv_digest, tv_name, tv_label, tv_concept, tv_describe, tv_desc, tv_comment;
     private Things_secondLsAdapter lsAdapter;
     private ListView listView;
     private ScrollView scrollView;
+    private String response;
 
     @Override
     protected int setLayout() {
@@ -59,6 +62,8 @@ public class ThingsSecondActivity extends AbsBaseActivity implements View.OnClic
         tv_concept = byView(R.id.tv_things_second_concept);
         tv_describe = byView(R.id.tv_things_second_describe);
         tv_desc = byView(R.id.tv_things_second_desc);
+        line_comment = byView(R.id.line_comment_things);
+        tv_comment = byView(R.id.tv_comment_num);
 
         listView = byView(R.id.ls_things_second);
         scrollView = byView(R.id.scrollView_things_second);
@@ -76,8 +81,8 @@ public class ThingsSecondActivity extends AbsBaseActivity implements View.OnClic
         iv_back.setFocusable(true);
         iv_back.setFocusableInTouchMode(true);
         iv_back.requestFocus();
-
         iv_back.setOnClickListener(this);
+        line_comment.setOnClickListener(this);
     }
 
     private void analysis() {
@@ -86,8 +91,9 @@ public class ThingsSecondActivity extends AbsBaseActivity implements View.OnClic
             public void onSuccess(String response) {
                 Gson gson = new Gson();
                 secondBean = gson.fromJson(response, Things_secondBean.class);
+                response = response;
+                Log.d("ThingsSecondActivity", response);
                 imgUrls = secondBean.getData().getCover_images();
-
                 imgAdapter = new Things_secondImgAdapter(ThingsSecondActivity.this, imgUrls);
                 vp_things_second.setAdapter(imgAdapter);
                 //给viewPager添加小点
@@ -102,7 +108,9 @@ public class ThingsSecondActivity extends AbsBaseActivity implements View.OnClic
                 tv_concept.setText(secondBean.getData().getDesigner().getConcept());
                 tv_describe.setText(secondBean.getData().getName());
                 tv_desc.setText(secondBean.getData().getDesc());
-
+                if (secondBean.getData().getComment_num() != 0) {
+                    tv_comment.setText(String.valueOf(secondBean.getData().getComment_num()));
+                }
                 lsAdapter = new Things_secondLsAdapter(ThingsSecondActivity.this);
                 lsAdapter.setSecondBean(secondBean);
                 listView.setAdapter(lsAdapter);
@@ -124,6 +132,12 @@ public class ThingsSecondActivity extends AbsBaseActivity implements View.OnClic
         switch (v.getId()){
             case R.id.iv_back:
                 finish();
+                break;
+            case R.id.line_comment_things:
+                Intent intent = new Intent(this, ThingsCommentActivity.class);
+//                intent.putExtra("commentResult", response);
+//                Log.d("ThingsSecondActivity", response);
+                startActivity(intent);
                 break;
         }
     }

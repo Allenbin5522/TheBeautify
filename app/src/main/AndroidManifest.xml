@@ -39,6 +39,7 @@
         <activity android:name=".ui.activity.pictorial.PictorialChildActivity"/>
         <activity android:name=".ui.activity.designer.DesignerSecondActivity"></activity>
         <activity android:name=".ui.activity.pictorial.PictorialThirdActivity"/>
+        <activity android:name=".ui.activity.things.ThingsCommentActivity"/>
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
