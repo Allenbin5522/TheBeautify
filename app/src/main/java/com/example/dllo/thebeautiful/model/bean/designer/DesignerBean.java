@@ -104,6 +104,19 @@ public class DesignerBean implements Parcelable {
             private int id;
             private List<String> recommend_images;
 
+            @Override
+            public String toString() {
+                return "DesignersBean{" +
+                        "city='" + city + '\'' +
+                        ", concept='" + concept + '\'' +
+                        ", name='" + name + '\'' +
+                        ", label='" + label + '\'' +
+                        ", avatar_url='" + avatar_url + '\'' +
+                        ", id=" + id +
+                        ", recommend_images=" + recommend_images +
+                        '}';
+            }
+
             public String getCity() {
                 return city;
             }

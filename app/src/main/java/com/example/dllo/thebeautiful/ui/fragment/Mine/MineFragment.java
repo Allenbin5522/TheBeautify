@@ -2,6 +2,7 @@ package com.example.dllo.thebeautiful.ui.fragment.mine;
 
 
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -113,6 +114,7 @@ public class MineFragment extends AbsBaseFragment implements View.OnClickListene
                 goTo(getContext(), WishActivity.class);
                 break;
             case R.id.circleImageView:
+
                 showDialog();
                 break;
             case R.id.share_sina:

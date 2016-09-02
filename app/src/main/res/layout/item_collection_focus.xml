@@ -7,7 +7,7 @@
     android:descendantFocusability="blocksDescendants"
     >
     <ImageView
-        android:id="@+id/iv_designer_collection"
+        android:id="@+id/iv_designer_collection_focus"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:src="#FFFFFF"

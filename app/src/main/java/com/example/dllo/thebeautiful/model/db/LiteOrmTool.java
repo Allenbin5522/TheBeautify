@@ -42,7 +42,7 @@ public class LiteOrmTool {
     /**增删改查的方法*/
 
     //对外提供的增加方法
-    public <T> void insert(T t) {
+    public static <T> void insert(T t) {
         getDbInstance()._insert(t);
     }
 

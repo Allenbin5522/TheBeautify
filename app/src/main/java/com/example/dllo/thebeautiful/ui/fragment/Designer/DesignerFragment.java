@@ -36,6 +36,7 @@ public class DesignerFragment extends AbsBaseFragment implements AdapterView.OnI
     private DesignerAdapter adapter;
     private List<DesignerBean.DataBean.DesignersBean> designersBeen;
 
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_designer;
