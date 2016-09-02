@@ -191,7 +191,7 @@
             android:paddingLeft="5dp"
             android:background="@drawable/shape_things_things_edittext"/>
         <LinearLayout
-            android:id="@+id/line_"
+            android:id="@+id/line_comment_things"
             android:layout_width="50dp"
             android:layout_height="50dp">
             <ImageView
@@ -200,6 +200,7 @@
                 android:src="@mipmap/article_comment_icon"
                 android:layout_gravity="center"/>
             <TextView
+                android:id="@+id/tv_comment_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2"
