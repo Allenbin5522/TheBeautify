@@ -60,9 +60,9 @@ public class DesignerSecondActivity extends AbsBaseActivity implements View.OnCl
 
     public void showBanner() {
         // 设置小圆点
-        banner.setBannerStyle(Banner.CIRCLE_INDICATOR);
-        // 设置位置 居中
-        banner.setIndicatorGravity(Banner.CENTER);
+//        banner.setBannerStyle(Banner.CIRCLE_INDICATOR);
+//        // 设置位置 居中
+//        banner.setIndicatorGravity(Banner.CENTER);
         // 设置图片
         banner.setImages(imageurls);
         // 设置轮播时间
