@@ -33,6 +33,12 @@ public class PicThirdAdapter extends BaseAdapter {
         return this;
     }
 
+    public void change(int from,int to){
+        PicThirdBean.DataBean.CommentsBean bean = datas.remove(from);
+        datas.add(to,bean);
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getCount() {
         return datas != null ? datas.size() : 0;
