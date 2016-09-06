@@ -3,6 +3,7 @@ package com.example.dllo.thebeautiful.ui.activity.pictorial;
 import android.content.Intent;
 import android.support.annotation.BinderThread;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -15,17 +16,21 @@ import com.example.dllo.thebeautiful.model.net.OKHttpInstance;
 import com.example.dllo.thebeautiful.model.net.OnHttpCallBack;
 import com.example.dllo.thebeautiful.ui.activity.AbsBaseActivity;
 import com.example.dllo.thebeautiful.ui.adapter.pictorial.PicThirdAdapter;
+import com.example.dllo.thebeautiful.view.DragListView;
+
+import java.util.List;
 
 /**
  * Created by dllo on 16/8/26.
  */
-public class PictorialThirdActivity extends AbsBaseActivity{
-    private ImageView arImage,back_befor;
+public class PictorialThirdActivity extends AbsBaseActivity implements DragListView.ExchangeDataListener {
+    private ImageView arImage, back_befor;
     private EditText talk_et;
     private TextView send_tv;
-    private ListView picThirdLs;
+    private DragListView picThirdLs;
     private PictorialDatas datas;
     private String thirdUrl;
+    private PicThirdAdapter thirdAdapter;
 
     @Override
     protected int setLayout() {
@@ -50,16 +55,17 @@ public class PictorialThirdActivity extends AbsBaseActivity{
                 finish();
             }
         });
+        picThirdLs.setExchangeDataListener(this);
     }
 
     private void parseDatas() {
         Intent intent = getIntent();
         datas = intent.getParcelableExtra("picThird");
-        thirdUrl = "http://design.zuimeia.com/api/v1/comments/article/"+datas.getId()+"/?page=1&page_size=30&device_id=000000000000000&platform=android&lang=zh&appVersion=1.1.7_1&appVersionCode=10171&systemVersion=22&countryCode=CN&user_id=0&token=&package_name=com.zuiapps.zuiworld";
+        thirdUrl = "http://design.zuimeia.com/api/v1/comments/article/" + datas.getId() + "/?page=1&page_size=30&device_id=000000000000000&platform=android&lang=zh&appVersion=1.1.7_1&appVersionCode=10171&systemVersion=22&countryCode=CN&user_id=0&token=&package_name=com.zuiapps.zuiworld";
         OKHttpInstance.getInstance().startRequest(thirdUrl, PicThirdBean.class, new OnHttpCallBack<PicThirdBean>() {
             @Override
             public void onSuccess(PicThirdBean response) {
-                PicThirdAdapter thirdAdapter = new PicThirdAdapter(PictorialThirdActivity.this);
+                thirdAdapter = new PicThirdAdapter(PictorialThirdActivity.this);
                 thirdAdapter.setDatas(response.getData().getComments());
                 picThirdLs.setAdapter(thirdAdapter);
             }
@@ -69,5 +75,10 @@ public class PictorialThirdActivity extends AbsBaseActivity{
 
             }
         });
+    }
+
+    @Override
+    public void setExchangeData(int from, int to) {
+        thirdAdapter.change(from,to);
     }
 }
